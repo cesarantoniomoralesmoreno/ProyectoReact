@@ -8,12 +8,13 @@ const Users = ({usersList}) =>{
         como el map para iterar */}
 
         <ul>
-        {usersList.map(function (oneUser){//Aqui lo que se hace es iterar al array "userList" con .map y dentro de este se le pasa una funcion
+        {usersList.map(function (oneUser){{/*Tambien puedo hacer esta una funcion arrow => */}
+            //Aqui lo que se hace es iterar al array "userList" con .map y dentro de este se le pasa una funcion
         //que recibe a cada usuario.
             return (
-                <li>
-                    <h5>{oneUser.first_name} {oneUser.last_name}</h5>
-                    <a href={oneUser.email}>{oneUser.email}</a>
+                <li key={oneUser.id}>
+                     <h3>{`${oneUser.id} - ${oneUser.first_name} ${oneUser.last_name}`}</h3>{/*Aqui podemos usar esto {oneUser.first_name} {oneUser.last_name} pero es mas limpio usando template literal */}
+                    <a href={`mailto: ${oneUser.email}`}>{oneUser.email}</a>
                     </li>
                 );
         })}
